@@ -1,0 +1,342 @@
+<!doctype html>
+<html>
+<script type="text/javascript">
+function MM_swapImgRestore() { //v3.0
+var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+function MM_preloadImages() { //v3.0
+var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+function MM_findObj(n, d) { //v4.01
+var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+function MM_swapImage() { //v3.0
+var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+</script>
+
+<head>
+
+<link rel="stylesheet" href="CSS/style.css">
+<title>Form Submission</title>
+<script>
+        function submitForm(event) {
+            event.preventDefault();
+			
+            const name = document.getElementById('name').value;
+            const age = document.getElementById('age').value;
+			const gender = document.getElementById('gender').value;
+            const num1 = parseFloat(document.querySelector('input[name="q1"]:checked').value);
+            const num2 = parseFloat(document.querySelector('input[name="q2"]:checked').value);
+			const num3 = parseFloat(document.querySelector('input[name="q3"]:checked').value);
+			const num4 = parseFloat(document.querySelector('input[name="q4"]:checked').value);
+			const num5 = parseFloat(document.querySelector('input[name="q5"]:checked').value);
+			const num6 = parseFloat(document.querySelector('input[name="q6"]:checked').value);
+			const num7 = parseFloat(document.querySelector('input[name="q7"]:checked').value);
+            const sum = num1 + num2 + num3 + num4 + num5 + num6 + num7;
+
+            fetch('/store', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({name, age, gender, num1, num2, num3, num4, num5, num6, num7, sum }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                <!--document.getElementById('result').textContent = `The sum of ${num1} and ${num2} is ${data.sum}`;
+				document.getElementById('result1').innerHTML = `Following user information stored successfully: Name=${data.name}, Age=${data.age}, Score=${data.sum}`;
+				document.getElementById('result').innerHTML = `Your Category is ${data.category}. ${data.message} Video recommendations based on your score are provided below!`;
+				document.getElementById('video1').innerHTML = `<iframe width="100%" height="315" src="${data.videoUrl1}" frameborder="0" allowfullscreen></iframe>`;
+				document.getElementById('video2').innerHTML = `<iframe width="100%" height="315" src="${data.videoUrl2}" frameborder="0" allowfullscreen></iframe>`;
+				document.getElementById('video3').innerHTML = `<iframe width="100%" height="315" src="${data.videoUrl3}" frameborder="0" allowfullscreen></iframe>`;
+				document.getElementById('video4').innerHTML = `<iframe width="100%" height="315" src="${data.videoUrl4}" frameborder="0" allowfullscreen></iframe>`;
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        }
+
+    </script>
+</head>
+
+<onLoad="MM_preloadImages('images/about button v2.png','images/physical button v2.png','images/mental button v2.png','images/academic button v2.png','images/lifestyle button v2.png')">
+<table width="100%" cellspacing="0" cellpadding="0">
+<tbody>
+    <tr>
+    <td colspan="7"><img src="images/banner.png" alt="" width= "100%" height="400"/></td>
+    </tr>
+    <tr> <!-- The a href "#" stands for HyperText Reference. This is where I insert another HTML page. -->
+    <td width="100"></td>
+    <td width="200"><a href="index.html" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('about','','images/about button v2.png',1)"><img src="images/about button.png" alt="" width="100%" height="100" id="about"></a></td>
+    <td width="200"><a href="physical.html" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('physical','','images/physical button v2.png',1)"><img src="images/physical button.png" alt="" width="100%" height="100" id="physical"></a></td>
+    <td width="200"><a href="mental.html" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('mental','','images/mental button v2.png',1)"><img src="images/mental button.png" alt="" width="100%" height="100" id="mental"></a></td>
+    <td width="200"><a href="academic.html" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('academic','','images/academic button v2.png',1)"><img src="images/academic button .png" alt="" width="100%" height="100" id="academic"></a></td>
+    <td width="200"><a href="lifestyle.html" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('lifestyle','','images/lifestyle button v2.png',1)"><img src="images/lifestyle button .png" alt="" width="100%" height="100" id="lifestyle"></a></td>
+    <td width="100"></td>
+    </tr>
+</tbody>
+</table>
+<h2>GLOW UP ERA:</h2>
+<p><strong>WHAT IS GLOW UP ERA ABOUT?</strong></p>
+<p>A glow up is meant to be a transformational period where people like to improve themselves in a holistic way focusing on all fields that they deem necessary to self improve.&nbsp;</p>
+<p>A glow up journey does not mean being trendy and being aesthetic it is about taking small steps to improve ones confidence and self worth gradually to create a better version of yourself that you can feel proud of. &nbsp;</p>
+<p>A glow up can vary depending on the person and is meant to hold a deep personal connection with the person and their values thus holding a different meaning with each individual.&nbsp;</p>
+<p>A glow up era is not to be used as a way of perfectionism but to create progress to grow and develop as a person. Whether there changes an individual seeks be gradual or dramatic during the process of a glow up you are bound to discover new things about yourself while feeling better in your own skin reminding oneself about the unlimited potential somebody has kept with them self.&nbsp;</p>
+
+<table width="100%" border="1" cellpadding="0" cellspacing="0">
+
+<tbody>
+    <tr>
+    <td><img src="images/physical.new.png" width="100%" height="364" alt=""/>
+        
+        <h2>PHYSICAL</h2>
+        </td>
+    <td><img src="images/mental.png" width="100%" height="364" alt=""/>
+    
+        <h2>MENTAL</h2>
+        </td>
+    <td><img src="images/academia.png" width="100%" height="364" alt=""/>
+    
+        <h2>ACADEMIC</h2>
+        </td>
+    <td><img src="images/lifesyle.png" width="100%" height="364" alt=""/>
+    
+            <h2>LIFESTYLE</h2>
+            </td>
+    </tr> 
+</tbody>
+</table>
+<br>
+<br>
+
+
+<!--this is to test out if the users information is getting saved into the database-->
+<body>
+	
+	<form onsubmit="submitForm(event)">
+		<fieldset>
+		<legend> Enter your details </legend>
+		<label for="name">Name:</label>
+		<input type="text" id="name" name="name" required> <br>
+		<label for="age">Age:</label>
+		<input type="number" id="age" name="age" required> <br>
+		<label for="gender">Gender:</label> 
+			<select id="gender" name="gender">
+			<option value="male">Male</option> <!--the options button helps to create a drop down-->
+			<option value="female">Female</option>
+			<option value="other">Other</option>
+			</select><br> <!--allows for one of the genders to be chosen-->
+		</fieldset>
+	<br>
+	<!--creating the quiz-->
+	<h2>Fill The Quiz To See What You Could Improve In</h2>
+		<br>
+		<fieldset> <!--creates a pretty barrier that makes the quiz look neater -->
+			<legend>1. How do you handle stress?</legend>
+				<div>
+					<input type="radio" id="q1b1" name="q1" value="4" /><!-- the radio type creates the multiple choice type look for the quiz -->
+					<label for="q1">Exercise</label>
+				</div>
+				
+				<div>
+					<input type="radio" id="q1b2" name="q1" value="5" />
+					<label for="q1">Meditation</label>
+				</div>
+
+				<div>
+					<input type="radio" id="q1b3" name="q1" value="3" />
+					<label for="q1">Socialising</label>
+				</div>
+
+				<div>
+					<input type="radio" id="q1b4" name="q1" value="2" />
+					<label for="q1">Distract myself with learning</label>
+				</div>
+		</fieldset>
+		<br><!--the br allows for the questions to be spaced out more clearly so it doesn't look like everything is spaced together-->
+
+		<fieldset>
+			<legend>2. How do you normally approach topics that you are unfamiliar with?</legend>
+
+				<div>
+					<input type="radio" id="q2b1" name="q2" value="5" /> <!--new id/name for all the questions options-->
+					<label for="q2">Ask for help from the people around me</label>
+				</div>
+
+				<div>
+					<input type="radio" id="q2b2" name="q2" value="4" />
+					<label for="q2">Research and ask questions about the topic</label>
+				</div>
+
+				<div>
+					<input type="radio" id="q2b3" name="q2" value="3" />
+					<label for="q2">Try to understand but give up if its too hard</label>
+				</div>
+
+				<div>
+					<input type="radio" id="q2b4" name="q2" value="2" />
+					<label for="q2">Avoid it at all costs</label>
+				</div>
+		</fieldset>
+		<br>
+		
+		<fieldset>
+			<legend>3. How do you spend your weekends?</legend>
+
+				<div>
+					<input type="radio" id="q3b1" name="q3" value="4" /> <!--new id/name for all the questions options-->
+					<label for="q3">Plan for the next week</label>
+				</div>
+
+				<div>
+					<input type="radio" id="q3b2" name="q3" value="5" />
+					<label for="q3">Socialise and relax</label>
+				</div>
+
+				<div>
+					<input type="radio" id="q3b3" name="q3" value="2" />
+					<label for="q3">Whatever comes to mind honestly</label>
+				</div>
+
+				<div>
+					<input type="radio" id="q3b4" name="q3" value="3" />
+					<label for="q3">Like to keep myself busy with things</label>
+				</div>
+		</fieldset>
+		<br>
+		
+		<fieldset>
+			<legend>4. How often do you like to try new things</legend>
+
+				<div>
+					<input type="radio" id="q4b1" name="q4" value="3" /> <!--new id/name for all the questions options-->
+					<label for="q4">Rarely</label>
+				</div>
+
+				<div>
+					<input type="radio" id="q4b2" name="q4" value="4" />
+					<label for="q4">Occasionally</label>
+				</div>
+
+				<div>
+					<input type="radio" id="q4b3" name="q4" value="5" />
+					<label for="q4">Most of the time</label>
+				</div>
+
+				<div>
+					<input type="radio" id="q3b4" name="q4" value="2" />
+					<label for="q4">Nope, never</label>
+				</div>
+		</fieldset>
+		<br>
+		
+		<fieldset>
+			<legend>5. How often do you exercise?</legend>
+
+				<div>
+					<input type="radio" id="q5b1" name="q5" value="4" />
+					<label for="q5">Everyday</label>
+				</div>
+
+				<div>
+					<input type="radio" id="q5b2" name="q5" value="5" />
+					<label for="q5">3-5 times a week</label>
+				</div>
+
+				<div>
+					<input type="radio" id="q5b3" name="q5" value="3" />
+					<label for="q5">Sometimes</label>
+				</div>
+
+				<div>
+					<input type="radio" id="q5b4" name="q5" value="2" />
+					<label for="q5">Barely</label>
+				</div>
+		</fieldset>
+		<br>
+		
+		<fieldset>
+			<legend>6. How do you start your day off</legend>
+
+				<div>
+					<input type="radio" id="q6b1" name="q6" value="2" />
+					<label for="q6">I use my phone straight away</label>
+				</div>
+
+				<div>
+					<input type="radio" id="q6b2" name="q6" value="3" />
+					<label for="q6">Go with the flow</label>
+				</div>
+
+				<div>
+					<input type="radio" id="q6b3" name="q6" value="4" />
+					<label for="q6">Follow a schedule</label>
+				</div>
+				
+				<div>
+					<input type="radio" id="q6b4" name="q6" value="5" />
+					<label for="q6">Practise mindfulness or daily appreciation</label>
+				</div>
+		</fieldset>
+		<br>
+				
+		<fieldset>
+			<legend>7. After a long day, how do you spend your time?</legend>
+
+				<div>
+					<input type="radio" id="q7b1" name="q7" value="2" />
+					<label for="q7">Watch TV or scroll through social media</label>
+				</div>
+
+				<div>
+					<input type="radio" id="q7b2" name="q7" value="3" />
+					<label for="q7">Relax or reflect on life</label>
+				</div>
+
+				<div>
+					<input type="radio" id="q7b3" name="q7" value="5" />
+					<label for="q7">Plan for the next day</label>
+				</div>
+				
+				<div>
+					<input type="radio" id="q7b4" name="q7" value="4" />
+					<label for="q7">Finish Chores</label>
+				</div>
+		</fieldset>
+		<br>
+			<div class="container">
+			<button type="submit" >Submit user details</button>
+			</div>
+		<br>
+		
+	</form>
+	<div id="result1"></div>
+	<br>
+	<div id="result"></div>
+	<br>
+	
+	<table width="100%" border="1" cellpadding="0" cellspacing="0">
+	<tbody>
+			<tr>
+				<td id="video1" > </td>
+				<td id="video2" > </td>
+				<td id="video3" > </td>
+				<td id="video4" > </td>
+			</tr> 
+	</tbody>
+	</table>
+	
+	<br>
+	<br>
+	<footer> -GLOW UP ERA &copy;2024- </footer>
+
+</body>
+</html>

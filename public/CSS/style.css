@@ -1,0 +1,84 @@
+body {
+    background-color: #fce9f3; /*following the oclour scheme for all the following css (background colour and the indian red) */
+    font-family: verdana;
+    font-size: 20px;
+    margin: 0;
+  }
+  
+  tbody {
+    color: #fce9f3;
+    text-align: center;
+	width: auto;
+  }
+  
+  h2 {
+    color: indianred;
+    font-family: verdana;
+    font-size: 20px;
+    text-align: center
+  }
+
+  p {
+    color: indianred
+  }
+  footer {
+    color: indianred
+  }
+
+form {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+input, textarea {
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.container {
+  display: flex; /* Enables CSS flexbox */
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically */
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+	align-items: center;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+label {
+  text-align: left;
+  align-items: center;
+  color: indianred;
+  gap: 20px;
+  cursor: pointer;
+  margin-bottom: 8px;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+
+}
+
+legend {
+  color:indianred;
+  font-weight: 700;
+  text-align: center;
+}
+
+footer {
+text-align: center;
+font-weight: 700;
+}
+
